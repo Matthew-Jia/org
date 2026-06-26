@@ -1,0 +1,86 @@
+
+# -*- mode: snippet -*-
+# name: daily
+# key: daily
+# --
+
+#+title: June 24, 2026
+
+* Metrics
+** Sleep Quality: 8/10
+- Time to bed: 3:30
+- Wake time: 1:30
+- Total hours: 9
+- Quality notes: Decent, construction nearby was very load
+** Health Tracking
+*** Water - 0/3500mL
+*** Nutrition
+- [ ] Protein shake
+**** Meals [2/4]:
+  + [X] Breakfast:
+  + [X] Lunch:
+  + [ ] Shake:
+  + [ ] Dinner:
+  + Snacks:
+    + 
+*** Movement [/]
+- [ ] Cardio
+- [ ] Strength
+
+* Morning Foundation [3/5]
+- [X] Wake up, drink water, cold water on face, teeth
+- [ ] Morning Movement (Cardio, bodyweight, yoga)
+- [ ] Vitamins, Magnesium, Vitamin D
+- [X] Review day's battle plan
+- [X] Financial/Systems Check
+
+* Work
+# TODO
+
+* Family Focus
+** Quality Time Minutes: 90
+** Meaningful Interactions:
+*** With Jasmine:
+    - Finished Parasyte: The Maxim
+      
+* Learning [/]
+- [ ] 
+
+* Evening Review/Reflection
+** Victories/What went well
+- Had a ton of time to just sit down and enjoy learning more about emacs.
+- Started planning the dolomites trip
+
+** Growth Areas/Key Lessons
+- What could improve: Could have definitely spent more time with
+  Jasmine. I could respond to her message faster. The goal should be
+  to instantly respond to her messages.
+- Didn't spend enough time focusing on my goal. I get sidetracked
+  really easily, especially when learning about something that could
+  help my workflow. For something like planning the dolomites, I don't
+  really need a crazy good workflow. I could just plan the dolomites
+  and worry about my workflow later, since the dolomites is much more
+  urgent and also something that is on Jasmine's mind.
+
+** Gratitude
+- Three things, ideas, people etc. I'm grateful for:
+  1. Jasmine saying with me even through all the tough times
+  2. Our Grab driver was very kinda and grateful for our extra money.
+     We gave him 50 SGD when the car was 37 SGD. He tried his best to give as much
+     change back as possible.
+  3. I'm grateful that I have so many friends to talk to. I don't even
+     try too hard to reach out to people, and I still have a lot of
+     people that I can talk to every day. I'm glad that I am keeping
+     up covnersation with Aryan, Dylan and Bobby. Giving advice to the
+     underclass is a lot of fun and I really feel like some of the
+     advice that I can give them could be very useful.
+
+** Evening Routine
+- [ ] Evening stretching
+  
+* Tomorrow's Preparation [2/2]
+- [X] Set up tomorrows necessary todos
+- [X] Set up tomorrows daily notes
+  
+* Notes & Insights    
+

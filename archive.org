@@ -1,0 +1,112 @@
+
+Archived entries from file /Users/matthewjia/org/config/emacs.org
+
+
+* From emacs.org
+
+** DONE Move all always forgets to this section                      :@Misc:
+CLOSED: [2026-06-23 Tue 23:20] SCHEDULED: <2026-06-23 Tue>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-24 Wed 14:27
+:ARCHIVE_FILE: ~/org/config/emacs.org
+:ARCHIVE_OLPATH: Always Forget
+:ARCHIVE_CATEGORY: emacs
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE Finish the org-mode description                          :@Learning:
+CLOSED: [2026-06-23 Tue 13:21] SCHEDULED: <2026-06-23 Tue>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-24 Wed 14:27
+:ARCHIVE_FILE: ~/org/config/emacs.org
+:ARCHIVE_OLPATH: Mode/Org Mode/Tasks
+:ARCHIVE_CATEGORY: emacs
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE Learn how to Type <S-C-<RETURN>> on a todo task, and create a new todo without a newline in between :@Learning:
+CLOSED: [2026-06-23 Tue 13:41] SCHEDULED: <2026-06-23 Tue>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-24 Wed 14:27
+:ARCHIVE_FILE: ~/org/config/emacs.org
+:ARCHIVE_OLPATH: Mode/Org Mode/Tasks
+:ARCHIVE_CATEGORY: emacs
+:ARCHIVE_TODO: DONE
+:END:
+Notes: Didn't really fix this, I'm keeping this as a feature
+
+** DONE Learn how to schedule a task in org agenda               :@Learning:
+CLOSED: [2026-06-22 Mon 23:08]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-24 Wed 14:27
+:ARCHIVE_FILE: ~/org/config/emacs.org
+:ARCHIVE_OLPATH: Mode/Org Mode/Tasks
+:ARCHIVE_CATEGORY: emacs
+:ARCHIVE_TODO: DONE
+:END:
+Notes: C-c C-s to schedule, C-c C-d to add a deadline
+
+** DONE Learn how to render org mode files better                :@Learning:
+CLOSED: [2026-06-23 Tue 14:49] SCHEDULED: <2026-06-23 Tue>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-24 Wed 14:27
+:ARCHIVE_FILE: ~/org/config/emacs.org
+:ARCHIVE_OLPATH: Mode/Org Mode/Tasks
+:ARCHIVE_CATEGORY: emacs
+:ARCHIVE_TODO: DONE
+:END:
+
+
+* From inbox.org
+
+** DONE Respond to Bobby and Aryan                                 :@Misc:
+CLOSED: [2026-06-24 Wed 17:58] SCHEDULED: <2026-06-24 Wed>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-24 Wed 17:58
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE move dolomites planning to projects file
+CLOSED: [2026-06-25 Thu 00:55]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-25 Thu 00:55
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE Edit the daily.org snippet to be for my daily notes      :@Learning:
+CLOSED: [2026-06-25 Thu 00:52]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-25 Thu 00:55
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE Learn how Tsoding gets multi-line cursor
+CLOSED: [2026-06-26 Fri 09:02]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-26 Fri 09:53
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+* From calendar.org
+
+** DONE Respond to bobby and aryan
+CLOSED: [2026-06-25 Thu 10:30] SCHEDULED: <2026-06-25 Thu>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-25 Thu 10:30
+:ARCHIVE_FILE: ~/org/calendar.org
+:ARCHIVE_OLPATH: Scheduled
+:ARCHIVE_CATEGORY: calendar
+:ARCHIVE_TODO: DONE
+:END:
+

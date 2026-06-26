@@ -1,0 +1,10 @@
+
+
+* TODO Learn more about elisp
+* TODO Add a ts lsp to emacs
+* TODO make the countries seen app
+* TODO 
+
+
+
+

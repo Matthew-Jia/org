@@ -1,0 +1,206 @@
+
+
+* Overview
+
+Notes for learning and remembering the emacs editor.
+
+* Mode
+
+** Major Modes
+
+In Emacs, a major mode dictates the fundamental behavior of a buffer
+(like a filetype in other editors). You can only run one major mode at
+a time, and it governs how Emacs parses syntax, highlights code, and
+executes specialized commands for that specific document type
+
+** Minor Modes
+Minor modes in Emacs are optional features that you can toggle on or
+
+can activate multiple minor modes at the same time within a single
+buffer. They provide localized enhancements, such as line numbers,
+auto-saving, or spell-checking.
+
+** Org Mode
+
+Org Mode is a major mode in emacs. It allows for efficient editting of
+org files.
+
+*** Tasks
+
+**** TODO Transfer all notes files to org-mode [0/1]               :@Misc:
+- [ ] nvim.md
+
+** Info Mode
+
+*** Tasks
+**** TODO Read Info#Advanced                                      :@Learning:
+
+* ELisp
+
+** List Data Types
+
+*** Printed Representation vs Read Syntax
+
+The printed representation is the ouput of a type when elisp code is
+evaluated, whereas the Read Syntax is a constant that the programmer
+programs into the code to set a Symbol to some value
+
+*** Char Syntax
+
+Characters are integers under the hood. Using integers as read syntax
+for characters is possible but not advised. The advised way to provide
+read syntax for characters is by starting with a question mark
+
+Ex:
+?Q ; The letter Q, or ASCII value 81
+?\N{LATIN SMALL LETTER A WITH GRAVE} ; à
+
+The second is an example of escaping syntax. Read [[elisp#Basic Char
+Syntax]] for more info on this.
+
+*** Symbols
+
+Symbols are the names of variables, functions, or property list.
+Symbols starting with colon (':') are called "keyword symbols" and are
+automatically constant. For more information about a symbols printed
+representation and read syntax, read [[elisp#Special Read Syntax]]
+
+*** Sequence Types
+
+A "sequence" is a Lisp object that represents an ordered set of
+elements. A list's length can be easily changed by adding or removing
+elements, whereas an array's length is fixed.
+
+*** Array Types
+
+There are four array types: strings, vectors, bool-vectors, and char-tables. 
+
+*** TODO Read the man pages for elisp                           :@Learning:
+- [ ] [[info:elisp#Lisp Data Types][2 Lisp Data Types]]
+
+*** TODO Learn how to make my init file an org file             :@Learning:
+
+* Always Forget
+
+** Movement
+- C-f: Move forward one character
+- C-b: Move backward one character
+- C-n: Move forward one line
+- C-p: Move backward one line
+- C-e: Move to the end of the line
+- C-a: Move to the beginning of the line
+- M-f: Move forward one word
+- M-b: Move backward one word
+- M-e: Move to the end of the sentence
+- M-a: Move to the end of the previous sentence
+- C-v: Move forward one screen
+- M-v: Move backward one screen
+
+** Text Editing
+- 
+- C-k: Delete till the end of the line
+- C-/: Undo
+- C-?: Redo
+  
+** Documentation/Help
+
+- C-h pt: Opens the interactive Emacs Tutorial to learn basic editing commands.
+- C-h k: Prompts you to press any key combination and explains what command it runs.
+- C-h f: Looks up and displays the documentation for a specific Emacs function or command.
+- C-h v: Shows the documentation and current value for a specified configuration variable.
+- C-h a: Performs an "apropos" keyword search to list matching commands and functions.
+- C-h b: Lists all active keyboard shortcuts (key bindings) available in your current file or mode.
+- C-h i: Launches the built-in Emacs Info Manual reader for full, structured guides.
+- C-h C-h: Opens a comprehensive help screen listing every single available help option.
+- M-x list-packages: Lists all downloadable packages (with melpa?)
+
+** Dired
+
+- C-x d: open dired
+- C-x C-f: Finds a file, and creates it if it does not already exist
+- R: rename a file/directory
+- +: Add a new directory
+- C: copy the file to a target directory
+
+** Terminal
+- M-!: execute a raw bash command
+- M-x shell: open an interactive shell
+
+** formatting
+
+- C-M-\: auto-indent the highlighted region
+
+** Windows + Buffers
+
+- C-x 2: Horizontal Split
+- C-x 3: Vertical Split
+- C-x 4: opens a new window for the following 
+- C-x C-s: Save current buffer
+- C-x s: Save all open buffers (with confirmation)
+
+** Org Mode
+
+*** Styles
+
+Wrap text with the following to achieve their styles:
+- *: Strong emphasis
+- /: Slanted emphasis
+- =: Verbatim
+- ~: Code
+- _: Underline
+- +: Strikethrough
+  
+*** Tasks
+
+- C-c a: open org-agenda.
+- C-c c: Capture a thought/task
+- C-c C-c: toggle a TODO checkbox.
+- C-c C-s [+n]: schedule a task n days in the future (default 0).
+- C-c C-d [+n]: deadline a task n days in the future (default 0).
+- C-c C-t: toggle a TODO Header.
+- C-c C-x a: archive a TODO (toggle).
+- C-c C-x C-i: Clock-in to a task
+- C-c C-x C-o: Clock-out of a task
+
+*** Folds/Structured Elements
+
+- M-<up> / M-<down>: Move a structured element up or down
+- TAB: Cycle through folding layers for a structured element
+- S-TAB: Cycle through folding layers for all headers only
+- M-RETURN: Create another structured elementp
+- C-RETURN: Create another Header element
+- M-<right> / M-<left>: Promote or demote a structured element
+- M-S-<right> / M-S-<left>: Promote or demote a structured element and
+  all its children
+- S-<right>: Smart switch the type of structured element
+
+*** Others
+p- [link][description]: Link
+- C-c C-,: Insert a structure template (block structure)
+
+** Info Mode
+
+- n: move to the next node at that level in the tree.
+- p: move to the previous node at that level in the tree.
+- u: move to the ancestor node of the current node.
+- <SPC>: move a page down. If at the end of the node, move to the next child node of the current node, or the next child node of its near
+- <BACKSPACE>: move a page up. If at the start of the node, move to the previous child node of the nearest ancestor that has a previous child node.
+- ]: Works the same as <SPC> when at the end of the node without needing to be at the end of the node.
+- [: Works the same as <BACKSPACE> when at the beginning of the node without needing to be at the beginning of the node.
+- <TAB>: move the cursor over the next menu subtopic
+- f [PATTERN]: finds the cross-reference node with the name PATTERN
+- l: move backwards in the list of recently visited nodes
+- r: move forwards in the list of recently visited nodes
+- L: list the entire history of visited nodes
+- d: Get the directory node
+- t: Get the top node of the current manual (one level lower than the directory node).
+
+** Macros
+
+- C-x (: Start recording a macro
+- C-x ): Stop recording a macro
+- C-x e: Play recorded macro
+
+** Magit
+
+- 

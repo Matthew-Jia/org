@@ -1,0 +1,13 @@
+
+
+* Tasks
+** TODO "Read what every programmer should know about floating point arithmetic"
+** TODO Learn what is which-key                                :@Learning:
+** TODO Learn what is Dired                                    :@Learning:
+** TODO Learn Magit                                            :@Learning:
+** TODO Learn project.el / eglot / coding workflow              :@Learning:
+** TODO Figure out how to set up block source types in org mode
+** TODO Learn how to ssh from my phone
+** TODO learn bash
+** TODO fix install script to use a brew file and edit all mac settings
+** TODO write notes for trading at the speed of light
