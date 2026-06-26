@@ -12,3 +12,4 @@ SCHEDULED: <2026-06-24 Wed>
 - [ ] beach plans
 ** TODO Respond to bobby and aryan
 SCHEDULED: <2026-06-26 Fri>
+* Deadlines
