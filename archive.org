@@ -56,7 +56,6 @@ CLOSED: [2026-06-23 Tue 14:49] SCHEDULED: <2026-06-23 Tue>
 :ARCHIVE_TODO: DONE
 :END:
 
-
 * From inbox.org
 
 ** DONE Respond to Bobby and Aryan                                 :@Misc:
@@ -98,6 +97,29 @@ CLOSED: [2026-06-26 Fri 09:02]
 :ARCHIVE_CATEGORY: inbox
 :ARCHIVE_TODO: DONE
 :END:
+
+** DONE Start Learning Magit                                   :@Learning:
+CLOSED: [2026-06-26 Fri 21:49]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-26 Fri 21:49
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+:LOGBOOK:
+CLOCK: [2026-06-26 Fri 10:56]--[2026-06-26 Fri 11:25] =>  0:29
+:END:
+
+** DONE Download which-key                                     :@Learning:
+CLOSED: [2026-06-26 Fri 22:05]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-26 Fri 22:05
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
 * From calendar.org
 
 ** DONE Respond to bobby and aryan
@@ -119,3 +141,14 @@ CLOSED: [2026-06-26 Fri 10:52] DEADLINE: <2026-06-26 Fri 11:15>
 :ARCHIVE_CATEGORY: calendar
 :ARCHIVE_TODO: DONE
 :END:
+
+** DONE Respond to bobby and aryan
+CLOSED: [2026-06-26 Fri 22:03] SCHEDULED: <2026-06-26 Fri>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-06-26 Fri 22:03
+:ARCHIVE_FILE: ~/org/calendar.org
+:ARCHIVE_OLPATH: Scheduled
+:ARCHIVE_CATEGORY: calendar
+:ARCHIVE_TODO: DONE
+:END:
+

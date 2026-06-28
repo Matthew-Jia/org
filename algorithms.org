@@ -1,9 +1,10 @@
-# Intro
+
+* Intro
 
 Cool/complicated algorithms notes
 
-# DP
+* DP
 
-## Alien Trick
+** Alien Trick
 
 Check out ``Gisha is Hunting" on codeforces. The 

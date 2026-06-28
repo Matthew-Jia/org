@@ -1,5 +1,4 @@
 
-
 * Overview
 
 Notes for learning and remembering the emacs editor.
@@ -203,4 +202,22 @@ p- [link][description]: Link
 
 ** Magit
 
-- 
+RET: Visit things. Magit is very smart about this.
+
+*** Movement
+- n: go to next section
+- p: go to previous section
+- C-x C-j: dired jump
+
+*** Diff
+- d: 
+- C-c C-t: Get the history of a function definition from the diff
+- C-c C-e: Edit the contents of a diff. This could be a diff that
+  isn't currently on your computer, i.e. a diff from a previous commit
+- E: Ediff (look at man pages for more)
+
+*** Folds
+- 1-4: Change visibility of the fold (1 is least visible, 4 is most visible)
+- g: reload the magit status window
+- G: reload all files in the git repo?
+- j: jump to section

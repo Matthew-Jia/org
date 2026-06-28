@@ -5,11 +5,9 @@ SCHEDULED: <2026-06-24 Wed>
 - [ ] Car
 - [ ] Route
 
-** TODO plan Greece stuff                                          :@Planning:
-SCHEDULED: <2026-06-24 Wed>
-- [ ] Boat Tour
-- [ ] ATV rentals
-- [ ] beach plans
-** TODO Respond to bobby and aryan
-SCHEDULED: <2026-06-26 Fri>
+** DONE plan Greece stuff                                      :@Planning:
+CLOSED: [2026-06-27 Sat 08:42] SCHEDULED: <2026-06-24 Wed>
+- [X] Boat Tour
+- [X] ATV rentals
+- [X] beach plans
 * Deadlines

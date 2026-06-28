@@ -1,13 +1,21 @@
 
-
 * Tasks
 ** TODO "Read what every programmer should know about floating point arithmetic"
-** TODO Learn what is which-key                                :@Learning:
-** TODO Learn what is Dired                                    :@Learning:
-** TODO Learn Magit                                            :@Learning:
+** DONE Learn what is Dired                                    :@Learning:
+CLOSED: [2026-06-27 Sat 08:43]
 ** TODO Learn project.el / eglot / coding workflow              :@Learning:
 ** TODO Figure out how to set up block source types in org mode
 ** TODO Learn how to ssh from my phone
 ** TODO learn bash
 ** TODO fix install script to use a brew file and edit all mac settings
 ** TODO write notes for trading at the speed of light
+** TODO finish the "It's Magit! - John Wiegley" video
+** TODO Get TS lsp up and working
+** TODO Move all notes to org files [1/1]
+- [X] algorithms
+- [ ] the first law of complexodynamics - figure out how to change all
+  latex stuff org mode stuff
+- [ ] 
+** TODO Learn how to send emails
+** TODO Learn how to browse the web
+** TODO Watch a video/read a book on Dired
