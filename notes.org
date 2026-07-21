@@ -1,0 +1,518 @@
+
+
+* Languages
+
+** Bash
+
+*** Environment Variables
+
+Environment are used to store global configurations settings and system data that need to be shared across processes. These variables are passed down from parent process to child process of fork. Environment variables are marked using export. 
+
+Here are a list of common Environment Variables:
+
+**** PATH
+
+The PATH env variable is a colon (:) seperated list of directories. When you type a command, like `ls` or `make`, 
+
+** C++
+
+*** Assembly
+
+**** Section keyword
+
+In assembly, a Section is a way of categorizing data and instructions so the linker and the CPU know how to treat different parts of your binary. There are three main sections:
+
+- .text: Contains the actual machine code instructions and must include a global entry point label (usually _start) for the linker.
+- .data + .rodata: This section is used for declaring initialized data (.data) that might change over the program's execution, or constants (.rodata, or ``Read-Only" data) that do not change during the program's execution.
+- .bss (Block Started by Symbol): This section is used for uninitialized global or static variables (local variables are on the stack). It essentially takes up zero bytes in the binary and is zeroed out by the OS at program start time. The only thing that remains in the .bss section in the binary is the virtual address that it starts (important because the linker has made assembly the relies on where it believes the .bss section starts) and the size (so the OS knows how much space it needs to zero out).
+
+The System V ABI defines a specific "priority list" for integer and pointer arguments. When you call a function, the compiler (or you, in assembly) must place the arguments in this exact order:
+
+| Argument # | Register |
+|------------+----------|
+| 1st        | RDI      |
+| 2nd        | RSI      |
+| 3rd        | RDX      |
+| 4th        | RCX      |
+| 5th        | R8       |
+| 6th        | R9       |
+
+If a function has more than 6 arguments, the rest are pushed onto the stack in reverse order.
+
+*** Keywords
+
+**** Restrict Keyword 
+
+C++ doesn't not have standard support for restrict, but many compilers have equivalents that usually work in both C++ and C, such as GCC's and Clang's ~__restrict__~. Restrict is a type qualifier that hints to the compiler a pointer will not be aliased during its lifetime, aiding optimizations like vectorization that would not otherwise be possible. If the declaration of intent is not followed (i.e. the object is accessed by an independent pointer), this will result in undefined behavior.
+
+**** Inline Keyword
+
+- Indicates to the compiler that "inline substitution of a function" is preferred over normal function call, that is, instead of jumping to the funciton body stored in a seperate location in memory, replace the call to the function with a copy of the contents of the function body directly in the binary. The decision to actually execute inline substitution of a function is still up to the compiler.
+    - Pros: 
+        - Eliminates the overhead of funciton call (passing args from callee to caller, and vice verca + jump instruction to function)
+    - Cons: 
+        - Increases binary size since function bodys are duplicated in the binary rather than kept out-of-line in one location in memory.
+        - Since inline instructions aren't stored in the same spot in memory, execessive use of inline and specific cases of inlined functions could put pressure on the icache whereas an out-of-line function will like in the same spot in memory and always take up the same cache lines in the icache. Some examples of this happening might be an inline function called in an unrolled loop, or frequent calls to the inline function in multiple different areas of the code.
+
+- An inline entity with external linkage can be defined more than once as long as all definitions are identical. In this case, the language-level guarantee is that the program behaves as though there is one shared entity.
+    - Great for header files that want to define an entity with external linkage, as each include of that header file in a different translation unit, once linked together, would cause a violation of the ODR.
+
+- Inline static data members is a definition rather than just a declaration. This allows you to define a static member variable on the same line as its declaration in the class rather than needing a seperate line for the definition of the static data member.
+
+- Inline const variables at namespace scope have external linkage by default, unlike the non-inline non-volatile const-qualified variables, which have internal linkage. 
+    - Reasoning: before C++17 inline variables existed, C++ wanted const qualified variables in header files to work naturally. Since you couldn't inline variables back then, a simple const variable in a header file would cause ODR violations between linked translation units that both include this header file (alternatively, you would need to use the extern keyword to declare the variable without definiting it, and define the variable in a src file). With the introduction if inline variables, this is no longer a problem, so inline const variables were changed back to the intuitive external linkage.
+    - This is actually significant. An internally linked variable means that the same const variable across translation units are completely different in memory and thus are their own seperate objects (constructors are called multiple times, mutable member variable states are different, etc.), wheinline reas an externally linked variable means that the same inline const variable across translation units are the exact same location in memory, making them the same object (one constructor is run, all member variables are shared, etc).
+
+- Inline static entities at the namespace scope are internally linked due to the static keyword. This is useless for variables but not entirely useless for functions (since they still hint to the compiler to use "inline substitution of a function").
+
+Note: If an inline variable that is externally linked must be evaluated at runtime, the compiler will generate locks/guards to ensure that its initialization runs exactly once, even if multiple threads attempt to access it before main() begins.
+
+**** Extern Keyword
+
+Extern is a linkage specifier used to declare a variable or function without defining it. It is mainly useful for solving ODR violations, especially in header files, but can also be used to declare variables at block scope. This works exactly the same way as declaring an extern variable at the namespace scope, but with the obvious fact that the extern variable is only useable within the block scope its declared in.
+
+*Note:* extern and static cannot be used together for the same variable declaration, but extern can be used to declare a variable following a static definition of the same varaible at namespace scope, causing the varaible declared extern to refer to the same object as the one declared static and continue to have internal linkage. This is considered bad practice and highly confusing.
+
+*** Linkage Types
+
+A name in C++ can have 4 different types of linkage
+
+**** Internal Linkage:
+Names that can be used by declarations within the same translation unit to refer to the same entity, but declarations in other translation units cannot refer to that entity. 
+
+- Done through the static keyword, global const variables (non-inline non-volatile const-qualified variables), unnamed namespaces, and data members of an anonymous union.
+- Defining an internal-linkage entity in a header does not ordinarily cause an ODR violation by itself, because each translation unit receives a distinct entity. However, they can still lead to undefined behavior expecially when used in an inline function shared across multiple translation units. In this case, the inline function would violate the ``must be identical defintions" requirement, since they would access their own internally linked entity. This is not allowed for inline functions since the standard requires each defintion to be identical. See ([[Inline Keyword]]) for more. 
+
+**** External Linkage
+Names that can be used by declarations within all linked translation units to refer to the same entity.
+- An name decalared at namespace scope has external linkage by default, unless a rule changes it to internal linkage or module linkage. These rules are:
+    - static -> internal linkage
+    - Non-volatile Const variables -> internal linkage
+    - inside unnamed namespace -> internal linkage
+    - attatched to a named module but not exported -> module linkage
+    - otherwise  external linkage
+- If more than one translation unit has its own definition of this externally linked name, then two such entities exist and symbols across these linked translation unit will not know which entity to bind to. The ~Inline~ keyword can be used to fix this, see [[Inline Keyword]] for more.
+
+**** Module Linkage
+TODO
+
+**** No Linkage:
+An name that cannot be redeclared in another scope in a way that reconnects to the same entity.
+
+- Names declared at the block scope with the following have no linkage:
+    - variables that are not explicitly declared extern
+    - local classes (classes declared at block scope) and their methods 
+    - other names declared at block scope such as typedefs, enums, and enumerators.
+    - funcitons cannot have no linkage, since they are by default external linkage, unless declared static, in which case it has internal linkage, and functions cannot be nested within functions (unlike classes), meaning it can't be declared at block scope.
+
+Another way to think about linkage is to think about what symbols can bind to which entity. An name defined with no linkage creates entities that can only be bound to by symbols within its scope. A name defined with internal (external) linkage creates an object that can be bound to by symbols within its translation unit (its linked translation unit). 
+
+*** One Definition Rule (ODR)}
+
+A fundamental rule in C++ stating that no variable, function, class, or template can have more than one definition within a specific scope, ensuring identical definitions exist across files.
+
+** Markdown
+
+*** Tables
+
+Use the vertical line `|` to separate each column, and use three or more dashes `---` to create each column's header. A vertical line should also be added at either end of the row.
+
+Ex:
+
+| Month | Savings |
+| --- | --- |
+| Jan. | $250 |
+| Feb. | $80 |
+| Mar. | $420 |
+
+
+*** Text Alignment
+
+Align text in the columns to the left, right, or center by adding a colon : to the left, right, or on both side of the dashes --- within the header row.
+
+
+| Item              | In Stock | Price |
+| :---------------- | :------: | ----: |
+| Python Hat        |   True   | 23.99 |
+| SQL Hat           |   True   | 23.99 |
+| Codecademy Tee    |  False   | 19.99 |
+| Codecademy Hoodie |  False   | 42.99 |
+
+
+- :-- means the column is left aligned.
+- --: means the column is right aligned.
+- :-: means the column is center aligned.
+
+*** Text Formatting
+
+Text can be formatted within tables. For example, links, emphasis, and inline code (words or phrases in backticks only, not code blocks) are all readily available for use within a table.
+
+Several formatting options are not available within tables, including:
+
+- Headings
+- Blockquotes
+- Horizontal rules
+- Images
+- Lists
+- HTML tags
+
+** Elisp
+
+** Org
+
+*** Variables
+
+**** Variable Scoping
+
+***** Lexical Binding
+
+A lexically-bound variable has "lexical scope", meaning that any reference to the variable must be located textually within the binding construct. The easiest way to reason through the value of a lexically-bound variable is to ask the question "What is the nearest enclosing binding of this variable in the source code?". A lexically-bound variable is created when creating a binding for a non-special variable in modern Lisp. Lecially-bound variables do not exist in the old Lisp dialect.
+
+Ex:
+
+#+begin_src elisp
+  ;;; -*- lexical-binding: t; -*-
+
+  (setq x 5)
+
+  (defun foo ()
+    x)
+
+  (let ((x 20))
+    (foo)) ; returns 5
+#+end_src
+
+Since the function foo was defined when the variable =x= had value 5, when it was later called in a let block that changed the value of =x= to 20, it still returned its original value of 5. You can think of foo in C++ like the following:
+
+#+begin_src C++
+  #include <memory>
+
+  class function_object {
+  public:
+    function_object(std::shared_ptr<int> x) : x{std::move(x)} {}
+    operator ()() { return *x; }
+    
+  private:
+    std::shared_ptr<int> x; // the function object gets a reference of the variable at constructions
+  }
+#+end_src
+
+The extent of a lexically-bound variable is generally just the scope its defined within, but can also be indefinite when captured by a closure
+
+Ex:
+
+#+begin_src elisp
+  ;;; -*- lexical-binding: t; -*-
+
+  (setq f (let ((x 5))
+  	    (lambda ()
+  	      (1+ x))))
+
+  (f) ; returns 6
+  (f) ; returns 7
+#+end_src
+
+In this example, x's extent would only be within the let block, but the closure f takes on the extent of x to its own extent, which could be indefinite.
+
+***** Dynamic Binding
+
+A dynamically-bound variable have dynamic scope and extent. The easiest way to reason through the value of a dynamically-bound variable is to ask the question "what is the most recently established active dynamic binding at runtime?". A dynamically-bound variable is created when creating a binding for a special variable, or when creating any binding for local variables in old Lisp dialect. The most common way to declare a variable as "special" is through defvar, and the scope of this "specialness" depends on the vale of /INITVALUE/. See [[help:defvar]] for more.
+
+Ex:
+
+#+begin_src elisp
+  ;;; -*- lexical-binding: nil; -*-
+
+  (setq x 5)
+
+  (defun foo ()
+    x)
+
+  (let ((x 20))
+    (foo)) ; returns 20
+#+end_src
+
+The function foo returns 20 even though the function was defined when x had value 5. This is because when foo ran, the value of the most enclosing binding of x was 20, and foo was created with a dynamically-bound version of x. You can think of foo in C++ like the following:
+
+#+begin_src C++
+  #include <vector>
+
+  thread_local std::vector<int> x_bindings{5};
+
+  class function_object {
+  public:
+    int operator()() const {
+      return x_bindings.back();
+    }
+  };
+#+end_src
+
+**** Variable Assignment
+
+There are two main operations for variable assignment:
+
+***** Creating a new binding
+
+This shadows an existing binding for a symbol. This is usually done through:
+
+- (let ((x 1)) ...)
+- (lambda (x) ...)
+- (defun (x) ...)
+
+***** Modify an existing binding
+
+This modifies the value of an existing binding. This is usually done through:
+
+- (setq x ...)
+- (setf ...)
+- (cl-incf x)
+
+* Always Forget
+** Emacs
+*** Movement
+- C-f: Move forward one character
+- C-b: Move backward one character
+- C-n: Move forward one line
+- C-p: Move backward one line
+- C-e: Move to the end of the non-comment portion of the line, or the end of the line if already there
+- C-a: Move to the fist non-white-space on the line, or the first whitespace if already on the first non-whitespace
+- M-f: Move forward one word
+- M-b: Move backward one word
+- M-e: Move to the end of the sentence
+- M-a: Move to the end of the previous sentence
+- C-v: Move forward one half screen
+- M-v: Move backward one half screen 
+- C-M-v: Move other window forward one half screen 
+- C-M-S-v: Move other window backward one half screen
+- C-M-f: Move forward by a s-expression
+- C-M-b: Move backward by s-expression
+- C-M-d: Move down into a list
+- C-M-u: Move up out of a list
+- C-M-n: Move forward to the next list
+- C-M-p: Move backward to the previous list
+- M-}: Move forward to end of paragraph
+- M-{: Move backward to start of paragraph
+- C-M-e: Move to next function declaration
+- C-M-a: Move to previous function declaration
+
+*** Text Editing
+- C-k: Delete till the end of the line
+- C-/: Undo
+- C-?: Redo
+- C-.: Duplicate line
+- M-u, C-M-k: kill-sexp
+- C-u C-x u: Undo in region
+- C-M-\: indents the marked region
+- C-x C-q: Toggle read-only mode
+  
+*** Searching
+
+- C-s: Begins an incremental search
+- C-r: Begins a backward incremental
+- C-s C-w: Search for the word underneath the cursor
+- C-M-s: Begins a regexp incremental search
+- M->: Jump to the last match
+- M-<: Jump to the first match
+
+*** Documentation/Help
+
+- C-h pt: Opens the interactive Emacs Tutorial to learn basic editing commands.
+- C-h k: Prompts you to press any key combination and explains what command it runs.
+- C-h f: Looks up and displays the documentation for a specific Emacs function or command.
+- C-h v: Shows the documentation and current value for a specified configuration variable.
+- C-h a: Performs an "apropos" keyword search to list matching commands and functions.
+- C-h b: Lists all active keyboard shortcuts (key bindings) available in your current file or mode.
+- C-h i: Launches the built-in Emacs Info Manual reader for full, structured guides.
+- C-h C-h: Opens a comprehensive help screen listing every single available help option.
+- M-x list-packages: Lists all downloadable packages (with melpa?)
+
+*** Registers
+
+- C-x r m: Add a bookmark
+- C-x r l: Opens bookmark interactive list
+- C-x r b: Jump to bookmark
+- C-x r n: Store number in register
+- C-x r s: Store region in register
+- C-x r SPC: Store point in register
+- C-x r +: Increment number in register
+- C-x r j: Jump to register
+- C-x r i: Insert content of register
+- C-x r w: Store window configuration in register
+- C-x r f: Store frameset in register
+
+*** Mark
+
+- C-SPC: set a mark and enter transient mark mode
+- C-u C-SPC: return to the previous mark in the mark ring
+- C-SPC C-SPC: 
+- C-x C-x: Swap the previous mark and point, and reactivate the last
+  region if it exists
+
+Percise marking:
+
+- M-h: Marks the next paragraph
+- C-x h: Marks the whole buffer
+- C-M-h: Marks the next defun
+- C-x C-p: Marks the next page
+- M-@: Marks the next word
+- C-M-<SPC>, C-M-@: Marks the next s-expression
+
+*** Dired
+
+- C-x d: open dired
+- C-x C-f: Finds a file, and creates it if it does not already exist
+- R: rename a file/directory
+- +: Add a new directory
+- C: copy the file to a target directory
+
+*** Terminal
+- M-!: execute a raw bash command
+- C-u M-!: inserts the output of the shell command at the cursor position
+- M-&: Runs a shell command asynchronously in the background. Use for long running commands so that emacs doesn't freeze.
+- M-|: Sends highlighted text selection as standard input to a shell command. Ex: Highlighting a list and passing it to the "sort" command will return the sorted list.
+- C-u M-|: Sends highlighted text selection as standard input to a shell command and replaces the highlighted region with the output of the command.
+- M-x vterm: open an interactive shell
+- C-c C-t: enter vterm-copy-mode, which freezes the terminal output and lets you use the buffer like any other buffer in emacs.
+
+*** formatting
+
+- C-M-\: auto-indent the highlighted region
+
+*** Windows + Buffers
+
+- C-x 2: Horizontal Split
+- C-x 3: Vertical Split
+- C-x 4: opens a new window for the following 
+- C-x C-s: Save current buffer
+- C-x s: Save all open buffers (with confirmation)
+
+*** tab-mode
+
+- C-x t 2: Create a new tab
+- C-x t 0: Close the current tab
+- C-x t RET: Select tab by name
+- C-<tab>, C-x t o: Next tab
+- C-S-<tab>: Previous tab
+- C-x t r: Rename tab
+- C-x t p ...: Run project command in other tab
+- C-x t t: Execute command in other tab
+- C-x t 1: Close all other tabs
+- C-x t C-t, C-x t C-f: Find file in other tab
+- C-x t b: Switch to buffer in other tab
+- C-x t d: Open dired in other tab
+- C-x t l: Show interactive tab list
+
+*** tab-bar-history-mode
+
+- M-[: go back to a previous window configuration in the current tab
+- M-]: cancel restoration of the privious window configuration
+
+*** Info Mode
+
+- n: move to the next node at that level in the tree.
+- p: move to the previous node at that level in the tree.
+- u: move to the ancestor node of the current node.
+- <SPC>: move a page down. If at the end of the node, move to the next child node of the current node, or the next child node of its near
+- <BACKSPACE>: move a page up. If at the start of the node, move to the previous child node of the nearest ancestor that has a previous child node.
+- ]: Works the same as <SPC> when at the end of the node without needing to be at the end of the node.
+- [: Works the same as <BACKSPACE> when at the beginning of the node without needing to be at the beginning of the node.
+- <TAB>: move the cursor over the next menu subtopic
+- f [PATTERN]: finds the cross-reference node with the name PATTERN
+- l: move backwards in the list of recently visited nodes
+- r: move forwards in the list of recently visited nodes
+- L: list the entire history of visited nodes
+- d: Get the directory node
+- t: Get the top node of the current manual (one level lower than the directory node).
+
+*** Macros
+
+- C-x (: Start recording a macro
+- C-x ): Stop recording a macro
+- C-x e: Play recorded macro
+
+*** Magit
+
+RET: Visit things. Magit is very smart about this.
+
+**** Movement
+- n: go to next section
+- p: go to previous section
+- C-x C-j: dired jump
+
+**** Diff
+- d: 
+- C-c C-t: Get the history of a function definition from the diff
+- C-c C-e: Edit the contents of a diff. This could be a diff that
+  isn't currently on your computer, i.e. a diff from a previous commit
+- E: Ediff (look at man pages for more)
+
+**** Folds
+- 1-4: Change visibility of the fold (1 is least visible, 4 is most visible)
+- g: reload the magit status window
+- G: reload all files in the git repo?
+- j: jump to section
+
+*** Fido
+- M-j: accepts the bect currently typed in the minibuffer as
+- C-s: cycle to the next fido completion
+- C-r: cycle to the previous fido completion
+
+** Org Mode
+
+**** Styles
+
+Wrap text with the following to achieve their styles:
+- *: Strong emphasis
+- /: Slanted emphasis
+- =: Verbatim
+- ~: Code
+- _: Underline
+- +: Strikethrough
+  
+**** Tasks
+
+- C-c a: open org-agenda.
+- C-c c: Capture a thought/task
+- C-c C-c: toggle a TODO checkbox.
+- C-c C-s [+n]: schedule a task n days in the future (default 0).
+- C-c C-d [+n]: deadline a task n days in the future (default 0).
+- C-c C-t: toggle a TODO Header.
+- C-c C-x a: archive a TODO (toggle).
+- C-c C-x C-i: Clock-in to a task
+- C-c C-x C-o: Clock-out of a task
+
+**** Folds/Structured Elements
+
+- M-<up> / M-<down>: Move a structured element up or down
+- TAB: Cycle through folding layers for a structured element
+- S-TAB: Cycle through folding layers for all headers only
+- M-RETURN: Create another structured elementp
+- C-RETURN: Create another Header element
+- M-<right> / M-<left>: Promote or demote a structured element
+- M-S-<right> / M-S-<left>: Promote or demote a structured element and all its children
+- S-<right>: Smart switch the type of structured element
+- C-c C-p: Jump to the previous subheader of the same level
+- C-c C-n: Jump to the next subheader of the same level
+- C-c C-u: Jump to the parent header
+- C-c C-p: Jump to the previous subheader of the same level
+
+**** Header Properties
+:PROPERTIES:
+:CUSTOM_ID: org header properties
+:END:
+C-c C-x p: Prompts for a property to add to a header
+CUSTOM_ID: Adds a custom id to a header to be used for linking
+
+**** Links
+- =[[TARGET][DESCRIPTION]]=: Link with target TARGET and description DESCRIPTION
+- =[[*My Header]]=: Link to the header named "My Header" in the current file
+- =[[*parent/target]]=: Link to the subheader named "child" under the header named "parent" in the current file.
+- =[[#My Custom Id]]=: Link to the header with the custom id "My Custom Id" in the current file. This is generally recommended over linking with subheaders. See [[#org header properties]] for info on how to craete custom ids.
+- =[[file:file.org:*My Header]]=: Link to the header named "My Header" in the file "file.org". If the file path is relative, search within the current directory. 
+- C-c C-o: Follow the link under the cursor
+- C-c C-l: Edit the target or description of the link
+ 
+
+**** Blocks 
+
+- C-c C-,: Displays a menu with a list of block templates to choose from

@@ -1,0 +1,105 @@
+# -*- mode: snippet -*-
+# name: daily
+# key: daily
+# --
+
+#+title: July 13, 2026
+
+* Metrics
+** Sleep Quality: /10
+- Time to bed: 12:00
+- Wake time: 8:30
+- Total hours: 8:00
+- Quality notes: Very good, my jet lag is starting to clear up
+** Health Tracking
+*** Water - 3500/3500mL
+*** Nutrition
+- [ ] Protein shake
+**** Meals [2/4]:
+  + [ ] Breakfast:
+  + [X] Lunch:
+  + [ ] Shake:
+  + [X] Dinner:
+  + Snacks:
+    
+*** Movement [1/2]
+- [X] Cardio
+- [ ] Strength
+
+* Morning Foundation [3/6]
+- [X] Wake up, drink water, cold water on face, teeth
+- [ ] Meditation
+- [X] Morning Movement (Cardio, bodyweight, yoga)
+- [ ] Vitamins, Magnesium, Vitamin D
+- [ ] Review day's battle plan
+- [X] Financial/Systems Check
+
+* Work
+# TODO
+
+* Family Focus
+** Quality Time Minutes: 30
+** Meaningful Interactions:
+*** With Jasmine:
+    - Ive still been texting her a lot.
+
+* Learning [/]
+- [ ] # Fill in the day beofre or the morning of
+- [ ] # Fill in the day beofre or the morning of
+- [ ] # Fill in the day beofre or the morning of
+
+* Evening Refelction
+** Victories
+- ended off the pickleball session playing pretty well. Was thinking
+  much less about my form and a lot more on where i want to place the
+  shot. At the last moment, I would think about my racket angle for
+  the shot and that would often help my shot. I also am starting back
+  up my motivation to do work and be productive.
+
+** Growth Areas
+- I need to still work on thinking more about jasmine. She is the best
+  thing that has ever happened to me, truly, and I need to make her
+  feel that way, especially when we are apart. I need to stop thinking
+  about other girls even if in the moment I think they are more
+  interesting or more pretty than Jasmine because at the end of the
+  day, Jasmine is the most interesting and most pretty girl of them
+  all. I also need to work on not scrolling so much and looking for
+  instant gratification. I really do have a lot of work to do so in my
+  free time, I should be trying to learn as much as I can. 
+
+** Gratitude - Three things, ideas, people etc. I'm grateful for:
+1. I am so incredibly grateful for jasmine being in my life. She is so
+   amazing and patient with me, I would definitely not be here without
+   anyone else. She has helped me through so many moments, like my
+   recruiting crisises, vital living things like finding housing, and
+   always is willing to proofread my messages to close family/friends
+   and recruiters, and is always so nice and aware of my feelings when
+   doing so. She truly has taught me so many things.
+2. Roee has always tried his best to be a good friend. Sometimes he
+   lets his ego get the best of him, but at the end of the day he
+   really does care a lot about kevin and I. He is also always down to
+   do things with other people which makes our lives so much more
+   interesting. I am incredibly grateful for when he cheated for me im
+   poker.
+3. My parent. I am sometimes pretty mean and blunt to them, but I am
+   trying to get better. They have cared so much for us and we truly
+   have made it out quite well, and it has a lot to do with how our
+   parents raised and disciplined us. And even now, they are still
+   trying to save money and are still working for us. They havent
+   retired yet because they dont want to burden us with having to
+   support them financially, even though they have hated their job for
+   so long.
+
+** Energy Levels
+- Focus Score [0-10]: 5
+- Energy Level [0-10]: 7
+
+** Evening Routine
+- [X] Evening stretching
+
+*** Tomorrow's Preparation [2/2]
+- [X] Setup tomorrows journal file
+- [X] Setup tomorrows tasks
+
+* Notes & Insights
+

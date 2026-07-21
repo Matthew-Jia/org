@@ -1,6 +1,17 @@
 
 
-
+* Learning
+** TODO Optiver [/]
+- [ ] Build and debug a medium-sized C++ project entirely from the terminal.
+- [ ] Inspect a process’s CPU, memory, file descriptors, threads, and network connections.
+- [ ] Use GDB to set breakpoints, inspect stacks, examine memory, and analyze a core dump.
+- [ ] Use sanitizers to find memory errors, undefined behavior, races, and leaks.
+- [ ] Use perf to find where CPU time is going.
+- [ ] Use strace to understand what a stalled process is doing.
+- [ ] Use tcpdump or Wireshark to inspect network traffic.
+- [ ] Write shell or Python scripts that automate repetitive development tasks.
+- [ ] Understand signals, pipes, redirection, permissions, environment variables, and system services.
+- [ ] Work comfortably over SSH without relying on a graphical interface.
 * Planning
 
 ** Dolomites July 17, 2026 - July 23, 2026

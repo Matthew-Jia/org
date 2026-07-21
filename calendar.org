@@ -1,13 +1,3 @@
 
 * Scheduled
-** TODO plan dolomites stuff                                       :@Planning:
-SCHEDULED: <2026-06-24 Wed>
-- [ ] Car
-- [ ] Route
-
-** DONE plan Greece stuff                                      :@Planning:
-CLOSED: [2026-06-27 Sat 08:42] SCHEDULED: <2026-06-24 Wed>
-- [X] Boat Tour
-- [X] ATV rentals
-- [X] beach plans
 * Deadlines

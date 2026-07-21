@@ -1,6 +1,6 @@
 
 * Tasks
-** TODO "Read what every programmer should know about floating point arithmetic"
+** TODO "Read what every programmer should know about floating point arithmetic" :@Reading:
 ** DONE Learn what is Dired                                    :@Learning:
 CLOSED: [2026-06-27 Sat 08:43]
 ** TODO Learn project.el / eglot / coding workflow              :@Learning:
@@ -19,3 +19,19 @@ CLOSED: [2026-06-27 Sat 08:43]
 ** TODO Learn how to send emails
 ** TODO Learn how to browse the web
 ** TODO Watch a video/read a book on Dired
+** DONE get mastering emacs on emacs
+CLOSED: [2026-07-03 Fri 17:45]
+** DONE add all the tab window keybinds to notes
+CLOSED: [2026-07-03 Fri 17:45]
+** TODO Learn how to make my init file an org file             :@Learning:
+** DONE try to make the cursor move down with the half page scroll
+CLOSED: [2026-07-10 Fri 20:21]
+** TODO see if there is a way to search for a word anywhere in a epub file
+** TODO see if it is possible for virtual line numbers to be shown instead of logical line numbers
+** TODO Find out how to show whitespace
+** TODO read "the seven habits of highly effective people"      :@Reading:
+** TODO read "deep work"                                        :@Reading:
+** TODO read "getting things done"                              :@Reading:
+** TODO read "redrising"                                        :@Reading:
+** TODO message benjamin zhao on linkedin
+** TODO find my split keyboard

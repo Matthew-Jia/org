@@ -1,0 +1,31 @@
+#+title: Deep Work
+#+author: Cal Newport
+
+* Why I am reading this
+Jasmine recommended me the book. I want to learn how to be as productive as possible.
+* Questions
+* Chapter Notes
+** Part 1
+*** Chapter 1
+**** Summary
+Goes over the three big ways to become successful in todays society, and argues that to produce 
+**** Important ideas
+- Three ways to become successful:
+
+  - Be savvy with the most valuable tools, which in our current world, is either AI or computers. 
+  - Be the best at what you do, like acting, singing, writing, or software engineering
+  - Have a lot of capital to invest in the hottest things, like being a VC firm investing in instagram in its early stages.
+
+- As you learn a new skill, Myelin, a layer of fatty tissue that grows around neurons, develop around the relevant neurons and allow them to fire more effortlessly and effctively.
+- High-quality work produced = (Time Spent) X (Intensity of Focus)
+- When you are multi-tasking, as you switch from task A to task B, a residue of your attention remains stuck thinking about the original task. This makes you more likely to perform poorly on your next task.
+
+**** Questions and disagreements
+**** Applications
+
+* Final Synthesis
+** One-sentence thesis
+** Key ideas
+** Connections
+** Actions
+** Review

@@ -120,6 +120,17 @@ CLOSED: [2026-06-26 Fri 22:05]
 :ARCHIVE_CATEGORY: inbox
 :ARCHIVE_TODO: DONE
 :END:
+
+** DONE figure out if there is a better way to scroll through fido suggestions other than arrow keys
+CLOSED: [2026-07-20 Mon 16:07]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-20 Mon 16:07
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
 * From calendar.org
 
 ** DONE Respond to bobby and aryan
@@ -152,3 +163,47 @@ CLOSED: [2026-06-26 Fri 22:03] SCHEDULED: <2026-06-26 Fri>
 :ARCHIVE_TODO: DONE
 :END:
 
+** TODO plan dolomites stuff                                       :@Planning:
+SCHEDULED: <2026-06-24 Wed>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-04 Sat 14:13
+:ARCHIVE_FILE: ~/org/calendar.org
+:ARCHIVE_OLPATH: Scheduled
+:ARCHIVE_CATEGORY: calendar
+:ARCHIVE_TODO: TODO
+:END:
+- [X] Car
+- [X] Route
+
+** DONE plan Greece stuff                                      :@Planning:
+CLOSED: [2026-06-27 Sat 08:42] SCHEDULED: <2026-06-24 Wed>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-04 Sat 14:13
+:ARCHIVE_FILE: ~/org/calendar.org
+:ARCHIVE_OLPATH: Scheduled
+:ARCHIVE_CATEGORY: calendar
+:ARCHIVE_TODO: DONE
+:END:
+- [X] Boat Tour
+- [X] ATV rentals
+- [X] beach plans
+
+** DONE water moms plants
+CLOSED: [2026-07-10 Fri 20:01] SCHEDULED: <2000-07-10 Mon>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-10 Fri 20:02
+:ARCHIVE_FILE: ~/org/calendar.org
+:ARCHIVE_OLPATH: Scheduled
+:ARCHIVE_CATEGORY: calendar
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE wash dirty clothes
+CLOSED: [2026-07-10 Fri 20:01] SCHEDULED: <2000-07-10 Mon>
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-10 Fri 20:02
+:ARCHIVE_FILE: ~/org/calendar.org
+:ARCHIVE_OLPATH: Scheduled
+:ARCHIVE_CATEGORY: calendar
+:ARCHIVE_TODO: DONE
+:END:

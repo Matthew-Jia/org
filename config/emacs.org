@@ -34,6 +34,22 @@ org files.
 *** Tasks
 **** TODO Read Info#Advanced                                      :@Learning:
 
+* Syntax table
+
+This table is what emacs uses to keep track of meaning for every character. Mainly major modes will edit these syntax tables to define things such as "What charaters are used for comments" or "What charaters make up a word", although minor modes can provide (usually small) adjustments to this table.
+
+** S-expressions
+
+S-expressions (sexp) are important to undertand because they make movement much faster. An S-expression is the fundamental unit of syntax in elisp, and this is defined by the syntax table. They are typically:
+
+- non-quoted words, including special characters
+- numbers (eg. 42, 3.14)
+- balanced expressions (eg. (), {}, <>, [])
+- booleans
+
+Moving by s-expression means moving to the end (start) of the next (previous) s-expression (of the same level, if balanced expressions are involved). Moving by list means moving to the end (beginning) of the next (previous) balanced expression, or the beginning of the child (parent) balenced expression. 
+
+* Redo ring
 * ELisp
 
 ** List Data Types
@@ -74,11 +90,6 @@ elements, whereas an array's length is fixed.
 
 There are four array types: strings, vectors, bool-vectors, and char-tables. 
 
-*** TODO Read the man pages for elisp                           :@Learning:
-- [ ] [[info:elisp#Lisp Data Types][2 Lisp Data Types]]
-
-*** TODO Learn how to make my init file an org file             :@Learning:
-
 * Always Forget
 
 ** Movement
@@ -87,20 +98,46 @@ There are four array types: strings, vectors, bool-vectors, and char-tables.
 - C-n: Move forward one line
 - C-p: Move backward one line
 - C-e: Move to the end of the line
-- C-a: Move to the beginning of the line
+- C-a: Move to the fist white-space on the line
 - M-f: Move forward one word
 - M-b: Move backward one word
 - M-e: Move to the end of the sentence
 - M-a: Move to the end of the previous sentence
-- C-v: Move forward one screen
-- M-v: Move backward one screen
+- M-m: Move to the beginning of the line
+- C-v: Move forward one half screen
+- M-v: Move backward one half screen 
+- C-M-v: Move other window forward one half screen 
+- C-M-S-v: Move other window backward one half screen
+- C-M-f: Move forward by a s-expression
+- C-M-b: Move backward by s-expression
+- C-M-d: Move down into a list
+- C-M-u: Move up out of a list
+- C-M-n: Move forward to the next list
+- C-M-p: Move backward to the previous list
+- M-}: Move forward to end of paragraph
+- M-{: Move backward to start of paragraph
+- C-M-e: Move to next function declaration
+- C-M-a: Move to previous function declaration
 
 ** Text Editing
-- 
 - C-k: Delete till the end of the line
 - C-/: Undo
 - C-?: Redo
+- C-.: Duplicate line
+- M-u, C-M-k: kill-sexp
+- C-u C-x u: Undo in region
+- C-M-\: indents the marked region
+- C-x C-q: Toggle read-only mode
   
+** Searching
+
+- C-s: Begins an incremental search
+- C-r: Begins a backward incremental
+- C-s C-w: Search for the word underneath the cursor
+- C-M-s: Begins a regexp incremental search
+- M->: Jump to the last match
+- M-<: Jump to the first match
+
 ** Documentation/Help
 
 - C-h pt: Opens the interactive Emacs Tutorial to learn basic editing commands.
@@ -113,6 +150,37 @@ There are four array types: strings, vectors, bool-vectors, and char-tables.
 - C-h C-h: Opens a comprehensive help screen listing every single available help option.
 - M-x list-packages: Lists all downloadable packages (with melpa?)
 
+** Registers
+
+- C-x r m: Add a bookmark
+- C-x r l: Opens bookmark interactive list
+- C-x r b: Jump to bookmark
+- C-x r n: Store number in register
+- C-x r s: Store region in register
+- C-x r SPC: Store point in register
+- C-x r +: Increment number in register
+- C-x r j: Jump to register
+- C-x r i: Insert content of register
+- C-x r w: Store window configuration in register
+- C-x r f: Store frameset in register
+
+** Mark
+
+- C-SPC: set a mark and enter transient mark mode
+- C-u C-SPC: return to the previous mark in the mark ring
+- C-SPC C-SPC: 
+- C-x C-x: Swap the previous mark and point, and reactivate the last
+  region if it exists
+
+Percise marking:
+
+- M-h: Marks the next paragraph
+- C-x h: Marks the whole buffer
+- C-M-h: Marks the next defun
+- C-x C-p: Marks the next page
+- M-@: Marks the next word
+- C-M-<SPC>, C-M-@: Marks the next s-expression
+
 ** Dired
 
 - C-x d: open dired
@@ -123,7 +191,12 @@ There are four array types: strings, vectors, bool-vectors, and char-tables.
 
 ** Terminal
 - M-!: execute a raw bash command
-- M-x shell: open an interactive shell
+- C-u M-!: inserts the output of the shell command at the cursor position
+- M-&: Runs a shell command asynchronously in the background. Use for long running commands so that emacs doesn't freeze.
+- M-|: Sends highlighted text selection as standard input to a shell command. Ex: Highlighting a list and passing it to the "sort" command will return the sorted list.
+- C-u M-|: Sends highlighted text selection as standard input to a shell command and replaces the highlighted region with the output of the command.
+- M-x vterm: open an interactive shell
+- C-c C-t: enter vterm-copy-mode, which freezes the terminal output and lets you use the buffer like any other buffer in emacs.
 
 ** formatting
 
@@ -137,6 +210,26 @@ There are four array types: strings, vectors, bool-vectors, and char-tables.
 - C-x C-s: Save current buffer
 - C-x s: Save all open buffers (with confirmation)
 
+** tab-mode
+
+- C-x t 2: Create a new tab
+- C-x t 0: Close the current tab
+- C-x t RET: Select tab by name
+- C-<tab>, C-x t o: Next tab
+- C-S-<tab>: Previous tab
+- C-x t r: Rename tab
+- C-x t p ...: Run project command in other tab
+- C-x t t: Execute command in other tab
+- C-x t 1: Close all other tabs
+- C-x t C-t, C-x t C-f: Find file in other tab
+- C-x t b: Switch to buffer in other tab
+- C-x t d: Open dired in other tab
+- C-x t l: Show interactive tab list
+
+** tab-bar-history-mode
+
+- M-[: go back to a previous window configuration in the current tab
+- M-]: cancel restoration of the privious window configuration
 ** Org Mode
 
 *** Styles
@@ -221,3 +314,6 @@ RET: Visit things. Magit is very smart about this.
 - g: reload the magit status window
 - G: reload all files in the git repo?
 - j: jump to section
+
+** Fido
+- M-j: accepts the bect currently typed in the minibuffer as is

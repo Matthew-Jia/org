@@ -1,0 +1,78 @@
+# -*- mode: snippet -*-
+# name: daily
+# key: daily
+# --
+
+#+title: July 14, 2026
+
+* Metrics
+** Sleep Quality: 7/10
+- Time to bed: 12:30
+- Wake time: 8:20
+- Total hours: 7:50
+- Quality notes: Had some bad dreams, probably because I was too hot
+** Health Tracking
+*** Water - 3500/3500mL
+*** Nutrition
+- [ ] Protein shake
+**** Meals [2/4]:
+  + [X] Breakfast:
+  + [ ] Lunch:
+  + [ ] Shake:
+  + [X] Dinner:
+  + Snacks:
+    
+*** Movement [1/2]
+- [X] Cardio
+- [ ] Strength
+
+* Morning Foundation [5/6]
+- [X] Wake up, drink water, cold water on face, teeth
+- [X] Meditation
+- [X] Morning Movement (Cardio, bodyweight, yoga)
+- [ ] Vitamins, Magnesium, Vitamin D
+- [X] Review day's battle plan
+- [X] Financial/Systems Check
+
+* Work
+- [X] read 50 pages of "deep work"
+- [ ] learn the best way to get a linux vm running on a mac
+- [ ] respond to bobby
+- [X] do laundry
+  
+* Family Focus
+** Quality Time Minutes: 30
+** Meaningful Interactions:
+*** With Jasmine:
+   - 
+
+* Learning [/]
+- [ ] learned a bit more about how to code in elisp. 
+- [ ] 
+- [ ] 
+
+* Evening Refelction
+** Victories
+- Started taking notes on books, which I think will be super impactful in my future life.
+
+** Growth Areas
+- Neeeeeed to start talking to jasmine more and speaking more chinese. Also, in pickleball, i need to be adding more topspin to my shot and focusing more on my footwork.
+
+** Gratitude - Three things, ideas, people etc. I'm grateful for:
+1. I love jasmine so much. she is just so much fun to talk to and to annoy. I love how much she plays along with all the stupid stuff i do, and how she is so patient with me when trying to learn chinese.
+2. Roee was very quick to come out of his house when we went to get him for pickleball. He was also very silent when I was losing to him in pickleball, which I appreciate.
+3. My parents do so much work for us, its actually insane. They got all of our cleaning supplies ready for tomorrow, which is definitely a lot of work. Mom also took my stuff out of the washer/dryer which was very nice. They also made a ton of yummy food, which I ate a lot of.
+
+** Energy Levels
+- Focus Score [0-10]: 8
+- Energy Level [0-10]: 8
+
+** Evening Routine
+- [ ] Evening stretching
+
+*** Tomorrow's Preparation [2/2]
+- [X] Setup tomorrows journal file
+- [X] Setup tomorrows tasks
+
+* Notes & Insights
+
