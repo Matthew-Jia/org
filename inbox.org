@@ -1,8 +1,6 @@
 
 * Tasks
 ** TODO "Read what every programmer should know about floating point arithmetic" :@Reading:
-** DONE Learn what is Dired                                    :@Learning:
-CLOSED: [2026-06-27 Sat 08:43]
 ** TODO Learn project.el / eglot / coding workflow              :@Learning:
 ** TODO Figure out how to set up block source types in org mode
 ** TODO Learn how to ssh from my phone
@@ -10,7 +8,6 @@ CLOSED: [2026-06-27 Sat 08:43]
 ** TODO fix install script to use a brew file and edit all mac settings
 ** TODO write notes for trading at the speed of light
 ** TODO finish the "It's Magit! - John Wiegley" video
-** TODO Get TS lsp up and working
 ** TODO Move all notes to org files [1/1]
 - [X] algorithms
 - [ ] the first law of complexodynamics - figure out how to change all
@@ -19,13 +16,7 @@ CLOSED: [2026-06-27 Sat 08:43]
 ** TODO Learn how to send emails
 ** TODO Learn how to browse the web
 ** TODO Watch a video/read a book on Dired
-** DONE get mastering emacs on emacs
-CLOSED: [2026-07-03 Fri 17:45]
-** DONE add all the tab window keybinds to notes
-CLOSED: [2026-07-03 Fri 17:45]
 ** TODO Learn how to make my init file an org file             :@Learning:
-** DONE try to make the cursor move down with the half page scroll
-CLOSED: [2026-07-10 Fri 20:21]
 ** TODO see if there is a way to search for a word anywhere in a epub file
 ** TODO see if it is possible for virtual line numbers to be shown instead of logical line numbers
 ** TODO Find out how to show whitespace
@@ -35,3 +26,4 @@ CLOSED: [2026-07-10 Fri 20:21]
 ** TODO read "redrising"                                        :@Reading:
 ** TODO message benjamin zhao on linkedin
 ** TODO find my split keyboard
+** TODO finish countries-visited

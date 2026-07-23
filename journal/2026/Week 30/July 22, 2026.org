@@ -1,0 +1,77 @@
+# -*- mode: snippet -*-
+# name: daily
+# key: daily
+# --
+
+#+title: July 22, 2026
+
+* Metrics
+** Sleep Quality: /10
+- Time to bed:
+- Wake time:
+- Total hours:
+- Quality notes:
+** Health Tracking
+*** Water - 0/3500mL
+*** Nutrition
+- [ ] Protein shake
+**** Meals [/]:
+  + [ ] Breakfast:
+  + [ ] Lunch:
+  + [ ] Shake:
+  + [ ] Dinner:
+  + Snacks:
+    
+*** Movement [/]
+- [ ] Cardio
+- [ ] Strength
+
+* Morning Foundation [0/5]
+- [ ] Wake up, drink water, cold water on face, teeth
+- [ ] Meditation
+- [ ] Morning Movement (Cardio, bodyweight, yoga)
+- [ ] Vitamins, Magnesium, Vitamin D
+- [ ] Review day's battle plan
+- [ ] Financial/Systems Check
+
+* Work - Three things you want to accomplish today
+- [ ]
+- [ ]
+- [ ]
+
+* Family Focus
+** Quality Time Minutes: 
+** Meaningful Interactions:
+*** With Jasmine:
+    - 
+
+* Learning - Three things you learned today
+- [ ] 
+- [ ] 
+- [ ] 
+
+* Evening Refelction
+** Victories
+- 
+
+** Growth Areas
+- 
+
+** Gratitude - Three things, ideas, people etc. I'm grateful for:
+1.
+2.
+3.
+
+** Energy Levels
+- Focus Score [0-10]:
+- Energy Level [0-10]:
+
+** Evening Routine
+- [ ] Evening stretching
+
+*** Tomorrow's Preparation [/]
+- [ ] Setup tomorrows journal file
+- [ ] Setup tomorrows tasks
+
+* Notes & Insights
+

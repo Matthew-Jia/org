@@ -1,5 +1,4 @@
 
-
 * Languages
 
 ** Bash
@@ -157,9 +156,6 @@ Several formatting options are not available within tables, including:
 - HTML tags
 
 ** Elisp
-
-** Org
-
 *** Variables
 
 **** Variable Scoping
@@ -184,7 +180,7 @@ Ex:
 
 Since the function foo was defined when the variable =x= had value 5, when it was later called in a let block that changed the value of =x= to 20, it still returned its original value of 5. You can think of foo in C++ like the following:
 
-#+begin_src C++
+#+begin_src cpp
   #include <memory>
 
   class function_object {
@@ -234,7 +230,7 @@ Ex:
 
 The function foo returns 20 even though the function was defined when x had value 5. This is because when foo ran, the value of the most enclosing binding of x was 20, and foo was created with a dynamically-bound version of x. You can think of foo in C++ like the following:
 
-#+begin_src C++
+#+begin_src cpp
   #include <vector>
 
   thread_local std::vector<int> x_bindings{5};
@@ -265,7 +261,191 @@ This modifies the value of an existing binding. This is usually done through:
 
 - (setq x ...)
 - (setf ...)
-- (cl-incf x)
+- (cl-incf x
+*** List Data Types
+
+**** Printed Representation vs Read Syntax
+
+The printed representation is the ouput of a type when elisp code is
+evaluated, whereas the Read Syntax is a constant that the programmer
+programs into the code to set a Symbol to some value
+
+**** Char Syntax
+
+Characters are integers under the hood. Using integers as read syntax
+for characters is possible but not advised. The advised way to provide
+read syntax for characters is by starting with a question mark
+
+Ex:
+?Q ; The letter Q, or ASCII value 81
+?\N{LATIN SMALL LETTER A WITH GRAVE} ; à
+
+The second is an example of escaping syntax. Read [[elisp#Basic Char
+Syntax]] for more info on this.
+
+**** Symbols
+
+Symbols are the names of variables, functions, or property list.
+Symbols starting with colon (':') are called "keyword symbols" and are
+automatically constant. For more information about a symbols printed
+representation and read syntax, read [[elisp#Special Read Syntax]]
+
+**** Sequence Types
+
+A "sequence" is a Lisp object that represents an ordered set of
+elements. A list's length can be easily changed by adding or removing
+elements, whereas an array's length is fixed.
+
+**** Array Types
+
+There are four array types: strings, vectors, bool-vectors, and char-tables. 
+** Org
+
+* Editors
+** Emacs
+*** Mode
+
+**** Major Modes
+
+In Emacs, a major mode dictates the fundamental behavior of a buffer
+(like a filetype in other editors). You can only run one major mode at
+a time, and it governs how Emacs parses syntax, highlights code, and
+executes specialized commands for that specific document type
+
+**** Minor Modes
+Minor modes in Emacs are optional features that you can toggle on or
+
+can activate multiple minor modes at the same time within a single
+buffer. They provide localized enhancements, such as line numbers,
+auto-saving, or spell-checking.
+
+**** Org Mode
+
+Org Mode is a major mode in emacs. It allows for efficient editting of
+org files.
+
+***** Tasks
+
+****** TODO Transfer all notes files to org-mode [0/1]       :@Misc:
+- [ ] nvim.md
+
+**** Info Mode
+
+***** Tasks
+****** TODO Read Info#Advanced                                  :@Learning:
+
+*** Syntax table
+
+This table is what emacs uses to keep track of meaning for every character. Mainly major modes will edit these syntax tables to define things such as "What charaters are used for comments" or "What charaters make up a word", although minor modes can provide (usually small) adjustments to this table.
+
+**** S-expressions
+
+S-expressions (sexp) are important to undertand because they make movement much faster. An S-expression is the fundamental unit of syntax in elisp, and this is defined by the syntax table. They are typically:
+
+- non-quoted words, including special characters
+- numbers (eg. 42, 3.14)
+- balanced expressions (eg. (), {}, <>, [])
+- booleans
+
+Moving by s-expression means moving to the end (start) of the next (previous) s-expression (of the same level, if balanced expressions are involved). Moving by list means moving to the end (beginning) of the next (previous) balanced expression, or the beginning of the child (parent) balenced expression. 
+
+*** Redo ring
+** Nvim
+*** Setup
+
+When nvim starts up, it initializes default options, including `runtimepath`. nvim startup automatically runs:
+
+- init.lua
+- plugin/**
+- after/plugin/**
+- ftdetect/**
+
+nvim startup does not automatically load files under `lua/` folders. This happens when a startup file calls a function like
+
+```lua
+require("config.options")
+```
+
+in this case, lua will search each directory in `runtimepath` and match the first file in the following order:
+
+1. package.loaded["config.options"] - lua packages already loaded
+2. ~/.config/nvim/lua/config/options.lua - first path in the `runtimepath`
+3. ~/.config/nvim/lua/config/options/init.lua - check init.lua under the config/options/ subdir after confirming config/options.lua doesn't exist
+4. etc.
+
+*** runtimepath
+
+Similar to the unix env variable `PATH`, `runtimepath` is a list of directories that nvim will search for to define behavior for filetypes, syntax highlighting, indentation, colors, LSP defaults, etc.
+
+## Useful Docs
+- General: `:h runtimepath`
+- See the set runtimepath: `:set runetimepath?` 
+
+*** Runtime directories
+
+Here are the different runtime directories and when they are executed
+
+## Useful Docs
+- `:h runtimepath`
+
+
+*** lua/ Directory
+
+This directory should contain all useful lua modules that you want to be loaded on startup, like plugin specs, as well as runtime files (like ftplugin) with configurations that don't need to be applied at the very end of the event. This is different from the [[nvim#after/ Directory|after Directory]], which should only contain runtime files with configurations that need to be applied at the very end of the event.
+
+*** after/ Directory
+
+The `after/` directory is part of Neovim's runtimepath system. Files under `after/` are sourced after their counterpart runtime files from the normal runtimepath. 
+
+Use `after/` for late overrides or additions to Neovim runtime behavior, such as filetype-specific settings, plugin tweaks, or native LSP config overrides. 
+
+For more info on type of files in the `after/` directory, see [[nvim#Runtime directories|Runtime directories]].
+
+## Examples
+- `after/ftplugin/*.lua`: run buffer-local filetype setup, such as `vim.opt_local` or buffer-local keymaps.
+- `after/lsp/*.lua`: return a server config table when using Neovim's native LSP config system.
+- `after/plugin/*.lua`: run setup code after normal plugin runtime files have loaded.
+
+
+*** lazy.nvim
+
+lazy.nvim is a modern plugin manager for nvim. It has two main jobs:
+
+1. Install, updated and configure plugins
+2. Decide when each plugin should be added to Neovim's path
+
+A plugin 
+
+**** Useful Docs:
+- Plugin specs: `:h lazy.nvim-🔌-plugin-spec`
+- Plugin spec examples: `:h lazy.nvim-🔌-plugin-spec-examples`
+- lazy.vim config defaults: `:h lazy.nvim-⚙️-configuration`
+- Loading order: `:h lazy.nvim-🚀-usage`
+- Profiling & Debugging: `:h lazy.nvim-🚀-usage-⚡-profiling-&-debug`
+
+**** Example
+
+A typical Lazy plugin file looks like this:
+
+```lua
+return {
+    {
+        "authors/plugin-name.nvim",
+        event = {},
+        opts = {
+            -- plugin-specific options
+        }
+    }
+}
+```
+
+*** Useful Tips
+
+Here are tips for using nvim
+
+**** Debugging/Troubleshooting
+
+- Documentation: `:h {subject}`, use `<TAB>` to autofill when you can't remember exact names of docs
 
 * Always Forget
 ** Emacs
@@ -299,7 +479,7 @@ This modifies the value of an existing binding. This is usually done through:
 - C-k: Delete till the end of the line
 - C-/: Undo
 - C-?: Redo
-- C-.: Duplicate line
+- C-;: Duplicate line
 - M-u, C-M-k: kill-sexp
 - C-u C-x u: Undo in region
 - C-M-\: indents the marked region
@@ -331,6 +511,7 @@ This modifies the value of an existing binding. This is usually done through:
 - C-x r m: Add a bookmark
 - C-x r l: Opens bookmark interactive list
 - C-x r b: Jump to bookmark
+- M-x bookmark-delete: delete a bookmark
 - C-x r n: Store number in register
 - C-x r s: Store region in register
 - C-x r SPC: Store point in register
@@ -452,10 +633,22 @@ RET: Visit things. Magit is very smart about this.
 - G: reload all files in the git repo?
 - j: jump to section
 
-*** Fido
-- M-j: accepts the bect currently typed in the minibuffer as
-- C-s: cycle to the next fido completion
-- C-r: cycle to the previous fido completion
+*** Vertico
+- M-RET: accepts the file currently typed in the minibuffer as
+  
+*** Consult
+
+- M-x consult-narrow-help: prints narrowing help as a minibuffer message
+
+*** Project.el
+- C-x p f: Interactively search and open files inside the current project root.
+- C-x p b: Limit buffer switching choices strictly to the current project's open buffers.
+- C-x p p: Quick-switch to another previously visited project directory from a historical list.
+- C-x p g: Search for a text pattern or regular expression across all project files (grep/ripgrep)
+- C-x p c: Run a build or compilation script from the project root
+- C-x p s: Start an Eshell instance automatically navigated to the project root
+- C-x p !: Execute a rapid synchronous shell command at the project root.
+- C-x p k: Instantly close all open buffers belonging to the active project.
 
 ** Org Mode
 
@@ -516,3 +709,5 @@ CUSTOM_ID: Adds a custom id to a header to be used for linking
 **** Blocks 
 
 - C-c C-,: Displays a menu with a list of block templates to choose from
+
+  

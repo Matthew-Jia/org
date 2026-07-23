@@ -131,6 +131,88 @@ CLOSED: [2026-07-20 Mon 16:07]
 :ARCHIVE_TODO: DONE
 :END:
 
+** DONE Get TS lsp up and working
+CLOSED: [2026-07-22 Wed 18:18]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-22 Wed 18:20
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+:LOGBOOK:
+CLOCK: [2026-07-22 Wed 17:34]--[2026-07-22 Wed 17:46] =>  0:12
+:END:
+
+** DONE include vertico
+CLOSED: [2026-07-22 Wed 15:47]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-22 Wed 18:20
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE include orderless
+CLOSED: [2026-07-22 Wed 15:47]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-22 Wed 18:20
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE include marginalia
+CLOSED: [2026-07-22 Wed 15:47]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-22 Wed 18:20
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE get mastering emacs on emacs
+CLOSED: [2026-07-03 Fri 17:45]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-22 Wed 18:20
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE add all the tab window keybinds to notes
+CLOSED: [2026-07-03 Fri 17:45]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-22 Wed 18:20
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE try to make the cursor move down with the half page scroll
+CLOSED: [2026-07-10 Fri 20:21]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-22 Wed 18:20
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
+
+** DONE Learn what is Dired                                    :@Learning:
+CLOSED: [2026-06-27 Sat 08:43]
+:PROPERTIES:
+:ARCHIVE_TIME: 2026-07-22 Wed 18:20
+:ARCHIVE_FILE: ~/org/inbox.org
+:ARCHIVE_OLPATH: Tasks
+:ARCHIVE_CATEGORY: inbox
+:ARCHIVE_TODO: DONE
+:END:
 * From calendar.org
 
 ** DONE Respond to bobby and aryan
